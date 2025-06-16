@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>US Citizenship Test Flashcards</title>
+    <meta name="description" content="Study for your US Citizenship test with interactive flashcards covering all 100 official USCIS civics questions.">
+    <meta name="keywords" content="us citizenship, citizenship test, flashcards, naturalization, civics test, uscis">
+    <meta name="author" content="Den Delimarsky">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://citizenship-flashcards.example.com">
+    <meta property="og:title" content="US Citizenship Test Flashcards">
+    <meta property="og:description" content="Study for your US Citizenship test with interactive flashcards covering all 100 official USCIS civics questions.">
+    <meta property="og:image" content="images/og.webp">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://citizenship-flashcards.example.com">
+    <meta property="twitter:title" content="US Citizenship Test Flashcards">
+    <meta property="twitter:description" content="Study for your US Citizenship test with interactive flashcards covering all 100 official USCIS civics questions.">
+    <meta property="twitter:image" content="images/og.webp">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/icon/favicon-16x16.png">
+    <link rel="manifest" href="images/icon/site.webmanifest">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo"><span>US Citizenship Test Flashcards</span></div>
+            <p class="tagline">Master the US Citizenship test with interactive flashcards</p>
+        </div>
+    </header>
+    
+    <main>
+        <div class="counter-container">
+            <div class="counter">
+                <span id="completed-count">0</span>
+                <p>Completed</p>
+                <button class="view-questions-btn" data-type="completed">View</button>
+            </div>
+            <div class="counter">
+                <span id="remaining-count">100</span>
+                <p>Remaining</p>
+                <button class="view-questions-btn" data-type="remaining">View</button>
+            </div>
+            <div class="counter">
+                <span id="earmarked-count">0</span>
+                <p>Earmarked</p>
+                <button class="view-questions-btn" data-type="earmarked">View</button>
+            </div>
+            <div class="counter">
+                <span id="skipped-count">0</span>
+                <p>Skipped</p>
+                <button class="view-questions-btn" data-type="skipped">View</button>
+            </div>
+        </div>
+
+        <!-- Questions list overlay -->
+        <div class="questions-list-overlay" id="questions-list-overlay">
+            <div class="questions-list-container">
+                <div class="questions-list-header">
+                    <h2 id="questions-list-title">Questions</h2>
+                    <button id="close-questions-list-btn">&times;</button>
+                </div>
+                <div class="questions-list-content">
+                    <table id="questions-table">
+                        <thead>
+                            <tr>
+                                <th>Question</th>
+                                <th>Section</th>
+                                <th>Subsection</th>
+                            </tr>
+                        </thead>
+                        <tbody id="questions-table-body">
+                            <!-- Questions will be inserted here by JS -->
+                        </tbody>
+                    </table>
+                    <div id="no-questions-message" class="no-questions-message">No questions in this category yet.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="flashcard-container">
+            <div class="flashcard" id="flashcard">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">
+                        <div class="card-content">
+                            <div class="tags">
+                                <span class="section-tag" id="section-tag">AMERICAN GOVERNMENT</span>
+                                <span class="subsection-tag" id="subsection-tag">A: Principles of American Democracy</span>
+                            </div>
+                            <p class="question-text" id="question-text">What is the supreme law of the land?</p>
+                        </div>
+                        <div class="front-buttons">
+                            <button class="btn" id="show-answer-btn">Show Answer</button>
+                            <button class="btn btn-secondary" id="skip-btn">Skip Question</button>
+                        </div>
+                    </div>
+                    <div class="flashcard-back">
+                        <div class="card-content">
+                            <div class="tags">
+                                <span class="section-tag" id="section-tag-back">AMERICAN GOVERNMENT</span>
+                                <span class="subsection-tag" id="subsection-tag-back">A: Principles of American Democracy</span>
+                            </div>
+                            <p class="question-text" id="question-text-back">What is the supreme law of the land?</p>
+                            <div class="answer-container" id="answer-container">
+                                <ul id="answer-list">
+                                    <li>the Constitution</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn" id="next-btn">Next Question</button>
+                            <button class="btn btn-secondary" id="earmark-btn">Earmark Question</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="btn btn-reset" id="reset-btn">Reset All Questions</button>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="disclaimer">
+            <h3>Important Disclaimer</h3>
+            <p>This site is not affiliated with the US government in any capacity. Material presented here may be out of date.</p>
+            <p>Always refer to the <a href="https://www.uscis.gov/citizenship/find-study-materials-and-resources" target="_blank" rel="noopener">USCIS Naturalization Test and Study Resources</a> for the most up-to-date materials.</p>
+            <p>This site does not guarantee accuracy and relevance for current US citizenship tests. Visitors bear all responsibility for preparing for the test using official USCIS materials. This is just a study guide.</p>
+        </div>
+        <div class="attribution">
+            <p>Built by <a href="https://den.dev" target="_blank" rel="noopener">Den Delimarsky</a>.</p>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script type="module" src="src/js/app.js"></script>
+</body>
+</html>
