@@ -42,7 +42,7 @@
 
 ### Footer
 
-- Include a note that this was built by Den Delimarsky, with a link to https://den.dev.
+- Include a note that this was built by Den, with a link to https://den.dev.
 - You need to add a clear disclaimer at the bottom (footer)that the site is not affiliated with the US government in any capacity and material here may be out of date.
     - Make sure to tell people that they should ALWAYS refer to the USCIS Naturalization Test and Study Resources (https://www.uscis.gov/citizenship/find-study-materials-and-resources) for the most up-to-date materials.
     - This site does not guarantee accuracy and relevance for current US citizenship tests.
